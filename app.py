@@ -292,6 +292,14 @@ elif page == "Analytics":
 
     st.pyplot(fig)
 
+    highest_category = category_expenses.idxmax()
+    highest_category_amount = category_expenses.max()
+
+    st.write(
+        f"Interpretation: {highest_category} has the highest total "
+        f"spending at ₱{highest_category_amount:,.2f}."
+    )
+
 
     # -------------------------
     # Line Chart and Histogram
@@ -347,6 +355,16 @@ elif page == "Analytics":
 
         st.pyplot(fig)
 
+        most_common_range = pd.cut(
+            df["Amount"],
+            bins=8
+        ).value_counts().idxmax()
+
+        st.write(
+            f"Interpretation: The most common expense range is "
+            f"{most_common_range}."
+        )
+
 
     # Expense Distribution
     with col2:
@@ -381,6 +399,15 @@ elif page == "Analytics":
         )
 
         st.pyplot(fig)
+
+        highest_day = daily_expenses.idxmax()
+        highest_day_amount = daily_expenses.max()
+
+        st.write(
+            f"Interpretation: The highest daily spending occurred on "
+            f"{highest_day.strftime('%B %d, %Y')} with a total of "
+            f"₱{highest_day_amount:,.2f}."
+        )     
 
 
 # =========================
