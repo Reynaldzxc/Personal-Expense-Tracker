@@ -29,8 +29,7 @@ if st.sidebar.button("Expenses", use_container_width=True):
 if st.sidebar.button("Analytics", use_container_width=True):
     st.session_state.page = "Analytics"
 
-if st.sidebar.button("Settings", use_container_width=True):
-    st.session_state.page = "Settings"
+
 
 page = st.session_state.page
 
@@ -574,14 +573,4 @@ elif page == "Expenses":
     )
 
 
-# =========================
-# SETTINGS
-# =========================
 
-elif page == "Settings":
-
-    st.title("Settings")
-
-    st.write(
-        "Application settings will be added here."
-    )
